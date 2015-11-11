@@ -14,7 +14,38 @@ NOTES:
 */
 
 #include <stdio.h>
-
-void * studentsCount(int *Arr, int len, int score, int *lessCount, int *moreCount) {
-	return NULL;
+int binarySearch(int *arr, int len, int ele)
+{
+	int low = 0, high = len - 1, mid;
+	while (low <high)
+	{
+		mid = (low + high) / 2;
+		if (arr[mid] == ele)
+			return mid + 1;
+		else if (arr[mid] < ele)
+			low = mid + 1;
+		else
+			high = mid - 1;
+	}
+	if (arr[low] < ele)
+		return(low + 1);
+	else
+		return low;
+}
+void * studentsCount(int *Arr, int len, int score, int *lessCount,
+	int *moreCount)
+{
+	*lessCount = 0;
+	*moreCount = 0;
+	if (Arr == NULL || len <= 0)
+		return NULL;
+	if ((len > 1 && Arr[0] == Arr[len - 1]) || (len == 1 &&
+		score == Arr[0]))
+		return NULL;
+	int index = binarySearch(Arr, len, score);
+	if (Arr[index - 1] == score)
+		*lessCount = index - 1;
+	else
+		*lessCount = index;
+	*moreCount = len - index;
 }

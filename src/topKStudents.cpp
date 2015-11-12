@@ -15,35 +15,37 @@ NOTES:
 
 #include <iostream>
 #include <malloc.h>
-
 struct student {
 	char *name;
 	int score;
 };
-struct student ** topKStudents(struct student *students, int len, int K)
+void bubbleSort(struct student *students, int len, int K)
 {
-	if (len < 1||K<=0)
-		return NULL;
-	if (K > len)
-		K= len;
-	int n = 0;
-	struct student **result = (struct student **)malloc(n*sizeof(struct student));
-	for (int i = 1; i < len; i++)
+	struct student temp;
+	for (int i = 0; i <len; i++)
 	{
 		for (int j = 0; j < len - 1; j++)
 		{
-			if (students[j].score < students[j + 
-1].score)
+			if (students[j].score < students[j + 1].score)
 			{
-				struct student temp = students[j];
+				temp = students[j];
 				students[j] = students[j + 1];
 				students[j + 1] = temp;
 			}
 		}
 	}
+}
+struct student ** topKStudents(struct student *students, int len, int K)
+{
+	if (len < 1||K<=0)
+		return NULL;
+	if (K > len)
+		K = len;
+	struct student **result = (struct student **)malloc(K*sizeof(struct student));
+	bubbleSort(&students[0], len, K);
 	for (int i = 0; i < K; i++)
 	{
-		result[n++] = &students[i];
+		result[i] = &students[i];
 	}
 	return result;
 }

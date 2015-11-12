@@ -11,12 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="studentsCount.cpp" />
+    <ClCompile Include="studentsCount.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="topKStudents.cpp" />
-    <ClCompile Include="scoresDescendingSort.cpp" />
-    <ClCompile Include="removeArrayDuplicates.cpp" />
-    <ClCompile Include="sortedArrayInsertNumber.cpp" />
-    <ClCompile Include="sortedArrayPositionsChange.cpp" />
+    <ClCompile Include="scoresDescendingSort.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="removeArrayDuplicates.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="sortedArrayInsertNumber.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="sortedArrayPositionsChange.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EA8FC4C2-FD85-426C-BF48-5B195EA40675}</ProjectGuid>
